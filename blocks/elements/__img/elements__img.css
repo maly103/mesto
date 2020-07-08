@@ -1,0 +1,9 @@
+.elements__img {
+  height: 282px;
+  width: 282зx;
+  object-fit: cover;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom;
+}

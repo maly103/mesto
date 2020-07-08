@@ -1,0 +1,19 @@
+.popup__text {
+    display: block;
+    width: 358px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 121%;
+    color: #000000;
+    padding-bottom: 13px;
+    border: none;
+    border-bottom: 1px solid rgba(0,0,0,0.2);
+    box-sizing: border-box;
+    margin: 0 auto;
+}
+
+.popup__text:nth-of-type(2n){
+    margin-top: 26px;
+}

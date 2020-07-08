@@ -1,0 +1,16 @@
+
+.profile__edit:hover {
+  cursor: pointer;
+  opacity: .6;
+}
+
+
+@media screen and (max-width: 480px){
+.profile__edit {
+  margin-left: 5px;
+  width: 15px;
+  height: 15px;
+  object-fit: cover;
+  align-self: center;
+}
+}
