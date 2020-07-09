@@ -6,5 +6,6 @@
 @media screen and (max-width: 600px) {
     .page__content {
         padding-left: calc((100% - 286px)/2);
+        margin-top: 33px;
     }
 }

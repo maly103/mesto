@@ -8,7 +8,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
-    width: 318px;
+    max-width: 318px;
 
 }
 
@@ -17,6 +17,6 @@
     font-size: 14px;
     line-height: 120%;
     text-align: center;
-    width: 280px;
+    min-width: 280px;
   }
 }

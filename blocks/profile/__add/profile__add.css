@@ -9,6 +9,8 @@
     background-repeat: no-repeat;
     align-self: center;
     justify-self: end;
+    background-color: transparent;
+
 }
 
 .profile__add:hover{
@@ -18,7 +20,8 @@
 
 @media  screen and (max-width:640px){
   .profile__add{
-    margin-top: 36px;
+    background-image: url(../../../images/elements/mobile_add.svg);
+    margin-top: 30px;
     width: 282px;
     }
 }

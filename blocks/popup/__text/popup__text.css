@@ -17,3 +17,12 @@
 .popup__text:nth-of-type(2n){
     margin-top: 26px;
 }
+
+
+@media screen and (max-width: 480px){
+  .popup__text {
+    width: 165px;
+    line-height: 1;
+
+  }
+}

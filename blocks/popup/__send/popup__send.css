@@ -1,6 +1,6 @@
 .popup__send {
     display: block;
-    background: #000000;
+    background-color: #000000;
     border-radius: 2px;
     color: white;
     font-family: Inter;
@@ -17,6 +17,15 @@
 }
 
 .popup__send:hover {
-  opacity: .8;
+  background-color: rgba(0,0,0,.8);
   cursor: pointer;
+}
+
+@media screen and (max-width: 480px){
+  .popup__send {
+    font-size: 14px;
+    line-height: 1;
+    width: 165px;
+    height: 40px;
+  }
 }

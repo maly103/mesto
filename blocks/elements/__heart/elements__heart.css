@@ -1,5 +1,18 @@
 .elements__heart {
-    position: absolute;
-    bottom: 7.3%;
-    right: 7%;
+    display: inline-block;
+    background-image: url("../../../images/elements/heart.svg");
+    border: none;
+    padding: 0;
+    width: 20px;
+    height: 18px;
+    background-size: cover;
+    background-color: transparent;
+    position: relative;
+    bottom: 28px;
+    left: calc(100% - 40px);
+
+
+
 }
+
+

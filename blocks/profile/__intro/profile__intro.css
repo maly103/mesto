@@ -10,6 +10,7 @@
 }
 @media screen and (max-width: 480px){
   .profile__intro {
+    padding-top: 18px;
     max-width: 280px;
     justify-content: center;
   }
