@@ -1,5 +1,5 @@
 title: Mesto
-link: [https://maly103.github.io/mesto/]
+link: [https://maly103.github.io/mesto/index.html]
 ___________________________
 
 Проектная работа №4 создана в учебных целях и представляет собой одностроничный
