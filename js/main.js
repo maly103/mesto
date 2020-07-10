@@ -12,19 +12,9 @@ let formElement = document.querySelector('.popup__container')
 
 function formSubmitHandler (evt) {
   evt.preventDefault();
-
-   nameInput = document.querySelector('.popup__text[name=prof-title]').value;
-   jobInput = document.querySelector('.popup__text[name=prof-subtitle]').value;
-
-  if(nameInput!=profileTitle.textContent && nameInput.value!=''){
-    profileTitle.textContent=nameInput;
-  }
-
-  if(jobInput!=profileSubtitle.textContent && jobInput!=''){
-    profileSubtitle.textContent=jobInput;
-  }
-   showHidePopup();
-
+  profileTitle.textContent=nameInput;
+  profileSubtitle.textContent=jobInput;
+  showHidePopup();
 }
 
 

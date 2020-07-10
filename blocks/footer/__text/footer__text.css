@@ -1,0 +1,17 @@
+.footer__text {
+  display: inline-block;
+  font-family: Inter,Arial, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 122%;
+  color: #545454;
+  margin: 0;
+}
+
+@media screen and (max-width: 480px){
+.footer__text {
+  font-size: 14px;
+  line-height: 1;
+}
+}

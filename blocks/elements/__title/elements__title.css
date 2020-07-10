@@ -1,5 +1,4 @@
 .elements__title {
-  display: inline-block;
   font-family: Inter, Arial, sans-serif;
   font-style: normal;
   font-weight: 900;
@@ -7,10 +6,9 @@
   line-height: 120%;
   color: #000000;
   max-width: 190px;
-  margin: 0;
-  padding: 25px 0 22px;
   box-sizing: border-box;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  margin: 0;
   }

@@ -1,5 +1,5 @@
 .elements__heart {
-    display: inline-block;
+    align-self: center;
     background-image: url("../../../images/elements/heart.svg");
     border: none;
     padding: 0;
@@ -7,12 +7,9 @@
     height: 18px;
     background-size: cover;
     background-color: transparent;
-    position: relative;
-    bottom: 28px;
-    left: calc(100% - 40px);
+   }
 
-
-
-}
-
+   .elements__heart:hover {
+     opacity: .6;
+   }
 

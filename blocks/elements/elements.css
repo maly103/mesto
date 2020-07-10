@@ -2,6 +2,7 @@
 @import url(./__img/elements__img.css);
 @import url(./__title/elements__title.css);
 @import url(./__heart/elements__heart.css);
+@import url(./__footer/elements__footer.css);
 
 .elements {
   list-style-type: none;
@@ -10,7 +11,11 @@
   grid-template-columns: repeat(auto-fill, 282px);
   grid-column-gap: 18px;
   grid-row-gap: 21px;
-  margin: 0;
+  margin: 51px 0 66px;
+ }
+
+ @media screen and (max-width: 600px) {
+  .elements {
+      margin: 33px auto 48px;
+  }
 }
-
-

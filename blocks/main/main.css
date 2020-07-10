@@ -1,0 +1,23 @@
+.main {
+  max-width: 882px;
+  min-width: 320px;
+  width: 100%;
+  margin: 0 auto;
+  display:flex;
+  flex-direction: column;
+  box-sizing: border-box;
+
+}
+
+
+@media screen and (max-width:900px){
+  .main {
+    padding: 0 calc((100% - 582px)/2);
+  }
+}
+
+@media screen and (max-width:600px){
+  .main {
+    padding: 0 19px;
+  }
+}

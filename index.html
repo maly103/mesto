@@ -6,10 +6,11 @@
   <title>MESTO</title>
   <link rel="stylesheet" href="./pages/index.css">
 </head>
+
 <body class="page">
 
   <section class="popup">
-      <form action="#" class="popup__container" name="popupForm">
+      <form action="#" class="popup__container" name="popup-form">
         <button class="popup__close" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
         <input class="popup__text" type="text" name="prof-title">
@@ -18,13 +19,11 @@
      </form>
   </section>
 
+  <header class="header">
+     <img class="logo header__logo" src="./images/Vector.svg" alt="логотип">
+  </header>
 
-  <div class="page__container">
-
-    <header class="header page__header">
-      <img class="logo header__logo" src="./images/Vector.svg" alt="логотип">
-    </header>
-  <main>
+  <main class="main">
     <section class="profile">
       <img src="./images/avatar.jpg" alt="аватарка" class="profile__avatar">
       <div class="profile__intro">
@@ -34,53 +33,61 @@
       </div>
       <button class="profile__add" type="button"></button>
     </section>
-    <section class="page__content">
-      <ul class="elements">
+
+     <ul class="elements">
         <li class="elements__item">
           <img class="elements__img" src="./images/cards/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск">
-          <button class="elements__heart" type="button"></button>
-          <h2 class="elements__title">Карачаевск</h2>
-
+          <div class="elements__footer">
+            <h2 class="elements__title">Карачаевск</h2>
+            <button class="elements__heart" type="button"></button>
+          </div>
         </li>
+
         <li class="elements__item">
           <img class="elements__img" src="./images/cards/elbrus.png" alt="Эльбрус">
-          <button class="elements__heart" type="button"></button>
-          <h2 class="elements__title">Гора Эльбрус</h2>
-
+          <div class="elements__footer">
+            <h2 class="elements__title">Гора Эльбрус</h2>
+            <button class="elements__heart" type="button"></button>
+          </div>
         </li>
+
         <li class="elements__item">
           <img class="elements__img" src="./images/cards/dombay.png" alt="Домбай">
-          <button class="elements__heart" type="button"></button>
-          <h2 class="elements__title">Домбай</h2>
-
+          <div class="elements__footer">
+            <h2 class="elements__title">Домбай</h2>
+            <button class="elements__heart" type="button"></button>
+          </div>
         </li>
+
         <li class="elements__item">
           <img class="elements__img" src="./images/cards/elbrus.png" alt="Эльбрус">
-          <button class="elements__heart" type="button"></button>
-          <h2 class="elements__title">Гора Эльбрус</h2>
-
+          <div class="elements__footer">
+            <h2 class="elements__title">Гора Эльбрус</h2>
+            <button class="elements__heart" type="button"></button>
+          </div>
         </li>
+
         <li class="elements__item">
           <img class="elements__img" src="./images/cards/dombay.png" alt="Домбай">
-          <button class="elements__heart" type="button"></button>
-          <h2 class="elements__title">Домбай</h2>
-
+          <div class="elements__footer">
+            <h2 class="elements__title">Домбай</h2>
+            <button class="elements__heart" type="button"></button>
+          </div>
         </li>
+
         <li class="elements__item">
           <img class="elements__img" src="./images/cards/kirill-pershin-1088404-unsplash.jpg" alt="Карачаевск">
-          <button class="elements__heart" type="button"></button>
-          <h2 class="elements__title">Карачаево-Черкесия</h2>
-
+          <div class="elements__footer">
+            <h2 class="elements__title">Карачаево-Черкесия</h2>
+            <button class="elements__heart" type="button"></button>
+          </div>
         </li>
       </ul>
-  </section>
-</main>
-<footer>
-  <p class="page__footer">&copy; 2020 Mesto Russia </p>
+  </main>
+
+<footer class="footer">
+  <p class="footer__text">&copy; 2020 Mesto Russia </p>
 </footer>
-
-
-  </div>
 
  <script src="./js/main.js"></script>
 </body>
