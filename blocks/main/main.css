@@ -1,7 +1,6 @@
 .main {
   max-width: 882px;
   min-width: 320px;
-  width: 100%;
   margin: 0 auto;
   display:flex;
   flex-direction: column;
@@ -11,13 +10,20 @@
 
 
 @media screen and (max-width:900px){
-  .main {
+  .main  {
+    max-width: 100%;
     padding: 0 calc((100% - 582px)/2);
   }
 }
 
 @media screen and (max-width:600px){
   .main {
-    padding: 0 19px;
+     padding: 0 calc((100% - 282px)/2);
+  }
+}
+
+@media screen and (max-width:320px){
+  .main {
+     padding: 0 19px;
   }
 }

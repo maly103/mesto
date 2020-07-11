@@ -11,10 +11,16 @@
     overflow: hidden;
 }
 
-@media screen and (max-width: 480px){
+@media screen and (max-width: 600px){
   .profile__title{
     font-size: 27px;
     line-height: 207%;
+    }
+}
+
+
+@media screen and (max-width: 480px){
+  .profile__title{
     text-align: center;
     min-width: 201px;
   }

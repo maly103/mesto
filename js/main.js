@@ -12,8 +12,8 @@ let formElement = document.querySelector('.popup__container')
 
 function formSubmitHandler (evt) {
   evt.preventDefault();
-  profileTitle.textContent=nameInput;
-  profileSubtitle.textContent=jobInput;
+  profileTitle.textContent=nameInput.value;
+  profileSubtitle.textContent=jobInput.value;
   showHidePopup();
 }
 
