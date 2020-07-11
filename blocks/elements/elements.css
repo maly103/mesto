@@ -16,7 +16,6 @@
 
  @media screen and (max-width: 600px) {
   .elements {
-    display: block;
-      margin: 33px auto 48px;
+     margin: 33px auto 48px;
   }
 }
