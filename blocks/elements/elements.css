@@ -3,6 +3,7 @@
 @import url(./__title/elements__title.css);
 @import url(./__heart/elements__heart.css);
 @import url(./__footer/elements__footer.css);
+@import url(./__trash/elements__trash.css);
 
 .elements {
   list-style-type: none;

@@ -1,7 +1,9 @@
+
 .elements__heart {
     align-self: center;
     background-image: url("../../../images/elements/heart.svg");
     border: none;
+    outline: none;
     padding: 0;
     width: 20px;
     height: 18px;
