@@ -54,10 +54,24 @@ const formElementEdit = blockPopupEdit.querySelector('.popup__container');
 const formElementAdd = blockPopupAdd.querySelector('.popup__container');
 
 
-function createCards(data) {
-  data.forEach(elem=>{
-  addCard(elem);
-})
+
+function showHidePopup(blockPopup) {
+  blockPopup.classList.toggle('popup_opened');
+}
+
+function openPopupImage(cardImg, cardTitle) {
+  modalImage.src=cardImg.src;
+  modalImage.alt=cardTitle.textContent;
+  modalText.textContent=cardTitle.textContent;
+  showHidePopup(blockPopupImage);
+}
+
+function handlerlikeIcon(el) {
+  el.classList.toggle('elements__heart_liked');
+}
+
+function cardDelete(el) {
+  el.closest('.elements__item').remove();
 }
 
 function addCard(data) {
@@ -86,28 +100,11 @@ function addCard(data) {
   cards.prepend(cardElements);
 }
 
-function handlerlikeIcon(el) {
-  el.classList.toggle('elements__heart_liked');
+function createCards(data) {
+  data.forEach(item=>{
+    addCard(item);
+  })
 }
-
-function cardDelete(el) {
-  el.closest('.elements__item').remove();
-}
-
-
-// open close forms
-function showHidePopup(blockPopup) {
-  blockPopup.classList.toggle('popup_opened');
-}
-
-function openPopupImage(cardImg, cardTitle) {
-  modalImage.src=cardImg.src;
-  modalImage.alt=cardTitle.textContent;
-  modalText.textContent=cardTitle.textContent;
-  showHidePopup(blockPopupImage);
-}
-
-// submit forms
 
 function formSubmitHandlerAdd (evt) {
   evt.preventDefault();
@@ -119,34 +116,32 @@ function formSubmitHandlerAdd (evt) {
   showHidePopup(blockPopupAdd);
 }
 
-  function formSubmitHandlerEdit (evt) {
-    evt.preventDefault();
+function formSubmitHandlerEdit (evt) {
+  evt.preventDefault();
 
-    profileTitle.textContent=nameInput.value;
-    profileSubtitle.textContent=jobInput.value;
+  profileTitle.textContent=nameInput.value;
+  profileSubtitle.textContent=jobInput.value;
 
-    showHidePopup(blockPopupEdit);
-  }
-
-
+  showHidePopup(blockPopupEdit);
+}
 
 // buttons
 buttonEdit.addEventListener('click',()=>{
-   nameInput.value=profileTitle.textContent;
-   jobInput.value=profileSubtitle.textContent;
-   showHidePopup(blockPopupEdit);
+  nameInput.value=profileTitle.textContent;
+  jobInput.value=profileSubtitle.textContent;
+  showHidePopup(blockPopupEdit);
 })
 
 buttonAdd.addEventListener('click',()=>{
-    showHidePopup(blockPopupAdd);
+  showHidePopup(blockPopupAdd);
 })
 
 buttonPopupEditClose.addEventListener('click',()=>{
-    showHidePopup(blockPopupEdit);
+  showHidePopup(blockPopupEdit);
 })
 
 buttonPopupAddClose.addEventListener('click',()=>{
-    showHidePopup(blockPopupAdd);
+  showHidePopup(blockPopupAdd);
 })
 
 buttonPopupImageClose.addEventListener('click',()=>{
