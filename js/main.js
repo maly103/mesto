@@ -98,7 +98,7 @@ function getTemplate(data) {
   })
 
   return cardElements;
-}
+};
 
 function addCard(data) {
   const item=getTemplate(data);
@@ -112,7 +112,7 @@ function createCards(data) {
   })
 };
 
-function formSubmitHandlerAdd (evt) {
+function formSubmitHandlerAdd(evt) {
   evt.preventDefault();
 
   const mestoInput=blockPopupAdd.querySelector('.popup__text[name=mesto]').value;
@@ -122,7 +122,7 @@ function formSubmitHandlerAdd (evt) {
   showHidePopup(blockPopupAdd);
 };
 
-function formSubmitHandlerEdit (evt) {
+function formSubmitHandlerEdit(evt) {
   evt.preventDefault();
 
   profileTitle.textContent=nameInput.value;
