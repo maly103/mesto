@@ -74,7 +74,7 @@ function cardDelete(el) {
   el.closest('.elements__item').remove();
 };
 
-function addCard(data) {
+function getTemplate(data) {
   const cardElements=cardTemplate.cloneNode(true);
   const cardImg=cardElements.querySelector('.elements__img');
   const cardTitle=cardElements.querySelector('.elements__title');
@@ -97,12 +97,18 @@ function addCard(data) {
         cardDelete(cardTrash);
   })
 
-  cards.prepend(cardElements);
+  return cardElements;
+}
+
+function addCard(data) {
+  const item=getTemplate(data);
+  cards.prepend(item);
 };
 
 function createCards(data) {
   data.forEach((item) =>{
-    addCard(item);
+    const card=getTemplate(item);
+    cards.prepend(card);
   })
 };
 
@@ -136,7 +142,7 @@ buttonAdd.addEventListener('click',() =>{
   showHidePopup(blockPopupAdd);
 });
 
-buttonPopupEditClose.addEventListegit addner('click',() =>{
+buttonPopupEditClose.addEventListener('click',() =>{
   showHidePopup(blockPopupEdit);
 });
 
