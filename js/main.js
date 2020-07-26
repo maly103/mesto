@@ -85,15 +85,15 @@ function renderCard(data) {
   cardImg.alt=data.name;
   cardTitle.textContent=data.name;
 
-  cardImg.addEventListener('click',() =>{
+  cardImg.addEventListener('click', () => {
         openPopupImage(cardImg, cardTitle);
   })
 
-  cardLike.addEventListener('click',() =>{
+  cardLike.addEventListener('click', () => {
       handlerlikeIcon(cardLike);
   })
 
-  cardTrash.addEventListener('click',() =>{
+  cardTrash.addEventListener('click', () => {
         cardDelete(cardTrash);
   })
 
@@ -105,7 +105,7 @@ function addCard(item) {
 };
 
 function createCards(data) {
-  data.forEach((item) =>{
+  data.forEach((item) => {
     addCard(renderCard(item));
   })
 };
@@ -130,25 +130,25 @@ function formSubmitHandlerEdit(evt) {
 };
 
 // buttons
-buttonEdit.addEventListener('click',() =>{
+buttonEdit.addEventListener('click', () => {
   nameInput.value=profileTitle.textContent;
   jobInput.value=profileSubtitle.textContent;
   showHidePopup(blockPopupEdit);
 });
 
-buttonAdd.addEventListener('click',() =>{
+buttonAdd.addEventListener('click', () => {
   showHidePopup(blockPopupAdd);
 });
 
-buttonPopupEditClose.addEventListener('click',() =>{
+buttonPopupEditClose.addEventListener('click', () => {
   showHidePopup(blockPopupEdit);
 });
 
-buttonPopupAddClose.addEventListener('click',() =>{
+buttonPopupAddClose.addEventListener('click', () => {
   showHidePopup(blockPopupAdd);
 });
 
-buttonPopupImageClose.addEventListener('click',() =>{
+buttonPopupImageClose.addEventListener('click',() => {
   showHidePopup(blockPopupImage);
 });
 
