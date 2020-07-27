@@ -74,7 +74,7 @@ function cardDelete(el) {
   el.closest('.elements__item').remove();
 };
 
-function renderCard(data) {
+function createCard(data) {
   const cardElements=cardTemplate.cloneNode(true);
   const cardImg=cardElements.querySelector('.elements__img');
   const cardTitle=cardElements.querySelector('.elements__title');
@@ -104,9 +104,9 @@ function addCard(item) {
   cards.prepend(item);
 };
 
-function createCards(data) {
+function renderCards(data) {
   data.forEach((item) => {
-    addCard(renderCard(item));
+    addCard(createCard(item));
   })
 };
 
@@ -116,7 +116,7 @@ function formSubmitHandlerAdd(evt) {
   const mestoInput=blockPopupAdd.querySelector('.popup__text[name=mesto]').value;
   const mestoSrcInput=blockPopupAdd.querySelector('.popup__text[name=mesto-url]').value;
 
-  addCard(renderCard({name:mestoInput,link:mestoSrcInput}));
+  addCard(createCard({name:mestoInput,link:mestoSrcInput}));
   showHidePopup(blockPopupAdd);
 };
 
@@ -155,4 +155,4 @@ buttonPopupImageClose.addEventListener('click',() => {
 formElementEdit.addEventListener('submit', formSubmitHandlerEdit);
 formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
 
-createCards(initialCards);
+renderCards(initialCards);
