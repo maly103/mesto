@@ -10,21 +10,25 @@
 <body class="page">
 
   <section class="popup popup_type_edit">
-      <form action="#" class="popup__container" name="popup-edit">
+      <form action="#" class="popup__container" name="popup-edit" novalidate>
         <button class="popup__close" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input class="popup__text" type="text" name="prof-title">
-        <input class="popup__text" type="text" name="prof-subtitle">
+        <input class="popup__text" type="text" name="prof-title" required minlength="2" maxlength="40" autocomplete="off">
+        <span class="popup__text-error" id="prof-title-error"></span>
+        <input class="popup__text" type="text" name="prof-subtitle" required minlength="2" maxlength="200" autocomplete="off">
+        <span class="popup__text-error" id="prof-subtitle-error"></span>
         <button class="popup__send" type="submit">Сохранить</button>
      </form>
   </section>
   <section class="popup popup_type_new">
-    <form action="#" class="popup__container" name="popup-new">
+    <form action="#" class="popup__container" name="popup-new" novalidate>
       <button class="popup__close" type="button"></button>
       <h2 class="popup__title">Новое место</h2>
-      <input class="popup__text" type="text" name="mesto" placeholder="Название">
-      <input class="popup__text" type="text" name="mesto-url" placeholder="Ссылка на картинку">
-      <button class="popup__send" type="submit">Создать</button>
+      <input class="popup__text" type="text" name="mesto" placeholder="Название" required minlength="1" maxlength="30" autocomplete="off">
+      <span class="popup__text-error" id="mesto-error"></span>
+      <input class="popup__text" type="url" name="mesto-url" placeholder="Ссылка на картинку" required>
+      <span class="popup__text-error" id="mesto-url-error"></span>
+      <button class="popup__send" type="submit" disabled>Создать</button>
    </form>
 </section>
 <section class="popup popup_type_image">
