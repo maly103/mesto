@@ -16,3 +16,4 @@
 @import url(../blocks/popup/_opened/popup_opened.css);
 @import url(../blocks/popup/__send/_inactive/popup__send_inactive.css);
 @import url(../blocks/popup/__text-error/_active/popup__text-error_active.css);
+@import url(../blocks/popup/__text/_type/popup__text_type_error.css);

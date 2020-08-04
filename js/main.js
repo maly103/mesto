@@ -55,15 +55,27 @@ const formElementAdd = blockPopupAdd.querySelector('.popup__container');
 
 
 
-function showHidePopup(blockPopup) {
-  blockPopup.classList.toggle('popup_opened');
+function showPopup(blockPopup) {
+  blockPopup.classList.add('popup_opened');
+  document.addEventListener('keydown', closePopupEsc);
+};
+
+function hidePopup(blockPopup) {
+  blockPopup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', closePopupEsc);
+};
+
+function closePopupEsc(evt) {
+    if (evt.key==='Escape') {
+     hidePopup(evt.currentTarget.querySelector('.popup_opened'));
+    }
 };
 
 function openPopupImage(cardImg, cardTitle) {
   modalImage.src=cardImg.src;
   modalImage.alt=cardTitle.textContent;
   modalText.textContent=cardTitle.textContent;
-  showHidePopup(blockPopupImage);
+  showPopup(blockPopupImage);
 };
 
 function handlerlikeIcon(el) {
@@ -117,7 +129,8 @@ function formSubmitHandlerAdd(evt) {
   const mestoSrcInput=blockPopupAdd.querySelector('.popup__text[name=mesto-url]').value;
 
   addCard(createCard({name:mestoInput,link:mestoSrcInput}));
-  showHidePopup(blockPopupAdd);
+  showPopup(blockPopupAdd);
+  
 };
 
 function formSubmitHandlerEdit(evt) {
@@ -126,100 +139,35 @@ function formSubmitHandlerEdit(evt) {
   profileTitle.textContent=nameInput.value;
   profileSubtitle.textContent=jobInput.value;
 
-  showHidePopup(blockPopupEdit);
+  showPopup(blockPopupEdit);
 };
 
 // buttons
 buttonEdit.addEventListener('click', () => {
   nameInput.value=profileTitle.textContent;
   jobInput.value=profileSubtitle.textContent;
-  showHidePopup(blockPopupEdit);
+  showPopup(blockPopupEdit);
 });
 
 buttonAdd.addEventListener('click', () => {
-  showHidePopup(blockPopupAdd);
+  showPopup(blockPopupAdd);
 });
 
-const resetForm = (elementForm) => {
-  elementForm.reset();
+const popupsClose = () => {
+  const sectionsPopup=Array.from(document.querySelectorAll('.popup'));
+  sectionsPopup.forEach((sectionElement) => {
+    sectionElement.addEventListener('click', (evt) => {
+      if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
+          hidePopup(sectionElement);  
+      };
+    });
+  });
 }
 
-buttonPopupEditClose.addEventListener('click', () => {
-  resetForm(blockPopupEdit.querySelector('.popup__container'));
-  showHidePopup(blockPopupEdit);
-});
-
-buttonPopupAddClose.addEventListener('click', () => {
-  showHidePopup(blockPopupAdd);
-  resetForm(blockPopupAdd.querySelector('.popup__container'));
-});
-
-buttonPopupImageClose.addEventListener('click',() => {
-  showHidePopup(blockPopupImage);
-});
+popupsClose();
 
 formElementEdit.addEventListener('submit', formSubmitHandlerEdit);
 formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
 
 renderCards(initialCards);
 
-//validate
-
-const showInputError = (errorElement, errorMessage) => {
-  errorElement.textContent=errorMessage;
-  errorElement.classList.add("popup__text-error_active");
-}
-
-const hideInputError = (errorElement) => {
-  errorElement.textContent="";
-  errorElement.classList.remove("popup__text-error_active");
-}
-
-const checkValidInput = (inputElement, formElement) => {
-  const errorElement = formElement.querySelector(`#${inputElement.name}-error`);
-  if(!inputElement.validity.valid) {
-    showInputError(errorElement, inputElement.validationMessage);
-  } else {
-    hideInputError(errorElement);
-  }
-}
-
-const isFormInvalid = (inputList) => {
-  return inputList.some((inputElement) => {
-    return !inputElement.validity.valid;
-  })
-};
-
-const toggleButtonState = (inputList, buttonElement) => {
-  if(isFormInvalid(inputList)) {
-    buttonElement.classList.add('popup__send_inactive');
-    buttonElement.disabled=true;
-  } else {
-    buttonElement.classList.remove('popup__send_inactive');
-    buttonElement.disabled=false;
-  }
-};
-
-const setEventListener = (inputList, formElement, buttonElement) => {
-  toggleButtonState(inputList, buttonElement);
-  inputList.forEach((inputElement) => {
-    inputElement.addEventListener('input', () => {
-      checkValidInput(inputElement, formElement);
-      toggleButtonState(inputList, buttonElement);
-    })
-  });
-}
-
-const enableValidate = () => {
-  const forms=Array.from(document.querySelectorAll(".popup__container"));
-  forms.forEach((formElement) => {
-    formElement.addEventListener('submit', function (evt) {
-      evt.preventDefault();
-    });
-    const inputs=Array.from(formElement.querySelectorAll(".popup__text"));
-    const buttonSubmit=formElement.querySelector(".popup__send");
-    setEventListener(inputs, formElement, buttonSubmit);
-  });
-};
-
-enableValidate();
