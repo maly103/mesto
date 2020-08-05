@@ -66,7 +66,7 @@ function hidePopup(blockPopup) {
 };
 
 function closePopupEsc(evt) {
-    if (evt.key==='Escape') {
+    if (evt.key === 'Escape') {
      hidePopup(evt.currentTarget.querySelector('.popup_opened'));
     }
 };
@@ -130,7 +130,7 @@ function formSubmitHandlerAdd(evt) {
 
   addCard(createCard({name:mestoInput,link:mestoSrcInput}));
   showPopup(blockPopupAdd);
-  
+
 };
 
 function formSubmitHandlerEdit(evt) {
@@ -158,7 +158,7 @@ const popupsClose = () => {
   sectionsPopup.forEach((sectionElement) => {
     sectionElement.addEventListener('click', (evt) => {
       if (evt.target.classList.contains('popup') || evt.target.classList.contains('popup__close')) {
-          hidePopup(sectionElement);  
+          hidePopup(sectionElement);
       };
     });
   });
