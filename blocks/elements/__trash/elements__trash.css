@@ -1,5 +1,5 @@
 .elements__trash {
-    background-image: 
+    background-image:
     url("../../../images/elements/trash_top.svg"),
     url("../../../images/elements/trash_bottom.svg");
     background-position: top center, bottom center;
@@ -12,9 +12,10 @@
     position: absolute;
     top: 18px;
     right: 15px;
-    
+
 }
 
 .elements__trash:hover {
     opacity: .6;
+    cursor: pointer;
   }

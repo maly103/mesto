@@ -16,7 +16,7 @@
 
 }
 
-.popup__send:hover,.popup__send:disabled {
+.popup__send:hover {
   background-color: rgba(0,0,0,.8);
   cursor: pointer;
 }
