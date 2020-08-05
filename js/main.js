@@ -129,7 +129,7 @@ function formSubmitHandlerAdd(evt) {
   const mestoSrcInput=blockPopupAdd.querySelector('.popup__text[name=mesto-url]').value;
 
   addCard(createCard({name:mestoInput,link:mestoSrcInput}));
-  showPopup(blockPopupAdd);
+  hidePopup(blockPopupAdd);
   
 };
 
@@ -139,7 +139,7 @@ function formSubmitHandlerEdit(evt) {
   profileTitle.textContent=nameInput.value;
   profileSubtitle.textContent=jobInput.value;
 
-  showPopup(blockPopupEdit);
+  hidePopup(blockPopupEdit);
 };
 
 // buttons
