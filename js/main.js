@@ -1,3 +1,6 @@
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
+
 const initialCards = [{
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
@@ -25,7 +28,6 @@ const initialCards = [{
 ];
 //data document
 const cards = document.querySelector('.elements');
-const cardTemplate = document.querySelector('.elements__card').content;
 
 //popup
 const blockPopupEdit = document.querySelector('.popup_type_edit');
@@ -42,9 +44,6 @@ const mestoSrcInput = blockPopupAdd.querySelector('.popup__text[name=mesto-url]'
 
 
 //data popup
-const buttonPopupEditClose = blockPopupEdit.querySelector('.popup__close');
-const buttonPopupAddClose = blockPopupAdd.querySelector('.popup__close');
-const buttonPopupImageClose = blockPopupImage.querySelector('.popup__close');
 const nameInput = blockPopupEdit.querySelector('.popup__text[name=prof-title]');
 const jobInput = blockPopupEdit.querySelector('.popup__text[name=prof-subtitle]');
 const modalImage = blockPopupImage.querySelector('.popup__image');
@@ -54,9 +53,8 @@ const modalText = blockPopupImage.querySelector('.popup__text-image');
 const formElementEdit = blockPopupEdit.querySelector('.popup__container');
 const formElementAdd = blockPopupAdd.querySelector('.popup__container');
 
-
-
 function showPopup(blockPopup) {
+  validation.enableValidation();
   blockPopup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
 }
@@ -64,6 +62,7 @@ function showPopup(blockPopup) {
 function hidePopup(blockPopup) {
   blockPopup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupEsc);
+
 }
 
 function closePopupEsc(evt) {
@@ -72,64 +71,22 @@ function closePopupEsc(evt) {
   }
 }
 
-function openPopupImage(cardImg, cardTitle) {
-  modalImage.src = cardImg.src;
-  modalImage.alt = cardTitle.textContent;
-  modalText.textContent = cardTitle.textContent;
+const openPopupImage = (cardImg, cardTitle) => {
+
+  modalImage.src = cardImg;
+  modalImage.alt = cardTitle;
+  modalText.textContent = cardTitle;
   showPopup(blockPopupImage);
-}
-
-function handlerlikeIcon(el) {
-  el.classList.toggle('elements__heart_liked');
-}
-
-function cardDelete(el) {
-  el.closest('.elements__item').remove();
-}
-
-function createCard(data) {
-  const cardElements = cardTemplate.cloneNode(true);
-  const cardImg = cardElements.querySelector('.elements__img');
-  const cardTitle = cardElements.querySelector('.elements__title');
-  const cardLike = cardElements.querySelector('.elements__heart');
-  const cardTrash = cardElements.querySelector('.elements__trash');
-
-  cardImg.src = data.link;
-  cardImg.alt = data.name;
-  cardTitle.textContent = data.name;
-
-  cardImg.addEventListener('click', () => {
-    openPopupImage(cardImg, cardTitle);
-  })
-
-  cardLike.addEventListener('click', () => {
-    handlerlikeIcon(cardLike);
-  })
-
-  cardTrash.addEventListener('click', () => {
-    cardDelete(cardTrash);
-  })
-
-  return cardElements;
-}
-
-function addCard(item) {
-  cards.prepend(item);
-}
-
-function renderCards(data) {
-  data.forEach((item) => {
-    addCard(createCard(item));
-  })
 }
 
 function formSubmitHandlerAdd(evt) {
   evt.preventDefault();
-  addCard(createCard({
+  renderCards([{
     name: mestoInput.value,
     link: mestoSrcInput.value
-  }));
+  }]);
   hidePopup(blockPopupAdd);
+  evt.target.reset();
 }
 
 function formSubmitHandlerEdit(evt) {
@@ -163,9 +120,34 @@ const popupsClose = () => {
   });
 }
 
+function addCard(item) {
+  cards.prepend(item);
+}
+
+function renderCards(data) {
+  data.forEach((item) => {
+    addCard(
+      (new Card(item,
+        '.elements__card',
+        openPopupImage,
+        'elements__heart_liked')).generateCard()
+    );
+  })
+}
+
+
 popupsClose();
 
 formElementEdit.addEventListener('submit', formSubmitHandlerEdit);
 formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
+
+const validation = new FormValidator({
+  formSelector: '.popup__container',
+  inputSelector: '.popup__text',
+  submitButtonSelector: '.popup__send',
+  inactiveButtonClass: 'popup__send_inactive',
+  inputErrorClass: 'popup__text_type_error',
+  errorClass: 'popup__text-error_active'
+});
 
 renderCards(initialCards);
