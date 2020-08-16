@@ -9,6 +9,8 @@
     white-space: nowrap;
     overflow: hidden;
     max-width: 318px;
+    grid-column-start: 1;
+    grid-column-end: 3;
 
 }
 

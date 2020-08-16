@@ -1,4 +1,5 @@
 import Card from './Card.js';
+import data from './config.js';
 import FormValidator from './FormValidator.js';
 
 const initialCards = [{
@@ -53,8 +54,18 @@ const modalText = blockPopupImage.querySelector('.popup__text-image');
 const formElementEdit = blockPopupEdit.querySelector('.popup__container');
 const formElementAdd = blockPopupAdd.querySelector('.popup__container');
 
+
+
+function validateInputElements(blockPopup) {
+  const inputList = Array.from(blockPopup.querySelectorAll('.popup__text'));
+  inputList.forEach(inputElement => {
+    (new FormValidator(data, inputElement)).enableValidation();
+  })
+}
+
+
 function showPopup(blockPopup) {
-  validation.enableValidation();
+  validateInputElements(blockPopup);
   blockPopup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
 }
@@ -129,8 +140,7 @@ function renderCards(data) {
     addCard(
       (new Card(item,
         '.elements__card',
-        openPopupImage,
-        'elements__heart_liked')).generateCard()
+        openPopupImage)).generateCard()
     );
   })
 }
@@ -141,13 +151,6 @@ popupsClose();
 formElementEdit.addEventListener('submit', formSubmitHandlerEdit);
 formElementAdd.addEventListener('submit', formSubmitHandlerAdd);
 
-const validation = new FormValidator({
-  formSelector: '.popup__container',
-  inputSelector: '.popup__text',
-  submitButtonSelector: '.popup__send',
-  inactiveButtonClass: 'popup__send_inactive',
-  inputErrorClass: 'popup__text_type_error',
-  errorClass: 'popup__text-error_active'
-});
+
 
 renderCards(initialCards);

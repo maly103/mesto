@@ -4,7 +4,7 @@ class Card {
     this._title = data.name;
     this._image = data.link;
     this._modalImage = modalImage;
-    this._classLiked = classLiked;
+
   }
 
   _getTemplate() {
@@ -24,19 +24,20 @@ class Card {
       this._modalImage(this._image, this._title);
     });
     this._cardLike.addEventListener('click', () => {
-      this._handlerLikeIcon(this._cardLike);
+      this._handlerLikeIcon();
     });
     this._cardTrash.addEventListener('click', () => {
-      this._cardDelete(this._cardTrash);
+      this._cardDelete();
     })
   };
 
-  _handlerLikeIcon(el) {
-    el.classList.toggle(this._classLiked);
+  _handlerLikeIcon() {
+    this._cardLike.classList.toggle('elements__heart_liked');
   };
 
-  _cardDelete(el) {
-    el.closest('.elements__item').remove();
+  _cardDelete() {
+    this._element.remove();
+    this._element = null;
   }
 
   generateCard() {

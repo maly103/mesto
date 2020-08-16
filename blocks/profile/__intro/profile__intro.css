@@ -1,15 +1,16 @@
 .profile__intro {
     max-width: 336px;
     align-self: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: 1fr max-content;
+    column-gap: 16px;
     justify-content: space-between;
 
 
 }
 @media screen and (max-width: 480px){
   .profile__intro {
+    grid-template-columns: max-content 1fr;
     padding-top: 18px;
     max-width: 280px;
     justify-content: center;
