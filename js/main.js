@@ -1,6 +1,6 @@
 import Card from './Card.js';
 import data from './config.js';
-import FormValidator from './FormValidator.js';
+import FormValidator from './Validator.js';
 
 const initialCards = [{
     name: 'Архыз',
