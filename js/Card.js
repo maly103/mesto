@@ -1,5 +1,5 @@
 class Card {
-  constructor(data, cardSelector, modalImage, classLiked) {
+  constructor(data, cardSelector, modalImage) {
     this._cardSelector = cardSelector;
     this._title = data.name;
     this._image = data.link;

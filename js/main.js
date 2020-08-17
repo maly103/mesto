@@ -1,6 +1,6 @@
 import Card from './Card.js';
 import data from './config.js';
-import FormValidator from './FormValidator.js/index.js';
+import FormValidator from './FormValidator.js';
 
 const initialCards = [{
     name: 'Архыз',
@@ -55,17 +55,8 @@ const formElementEdit = blockPopupEdit.querySelector('.popup__container');
 const formElementAdd = blockPopupAdd.querySelector('.popup__container');
 
 
-
-function validateInputElements(blockPopup) {
-  const inputList = Array.from(blockPopup.querySelectorAll('.popup__text'));
-  inputList.forEach(inputElement => {
-    (new FormValidator(data, inputElement)).enableValidation();
-  })
-}
-
-
 function showPopup(blockPopup) {
-  validateInputElements(blockPopup);
+  (new FormValidator(data, blockPopup.querySelector('.popup__container'))).enableValidation();
   blockPopup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
 }
