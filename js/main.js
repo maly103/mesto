@@ -56,7 +56,10 @@ const formElementAdd = blockPopupAdd.querySelector('.popup__container');
 
 
 function showPopup(blockPopup) {
-  (new FormValidator(data, blockPopup.querySelector('.popup__container'))).enableValidation();
+  if (blockPopup.querySelector('.popup__container')) {
+    (new FormValidator(data, blockPopup.querySelector('.popup__container'))).enableValidation();
+  }
+
   blockPopup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
 }
