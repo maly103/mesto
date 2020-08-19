@@ -54,7 +54,6 @@ const modalText = blockPopupImage.querySelector('.popup__text-image');
 const formElementEdit = blockPopupEdit.querySelector('.popup__container');
 const formElementAdd = blockPopupAdd.querySelector('.popup__container');
 
-
 function showPopup(blockPopup) {
   const formPopup = blockPopup.querySelector('.popup__container');
   if (formPopup) {
@@ -68,7 +67,6 @@ function showPopup(blockPopup) {
 function hidePopup(blockPopup) {
   blockPopup.classList.remove('popup_opened');
   document.removeEventListener('keydown', closePopupEsc);
-
 }
 
 function closePopupEsc(evt) {
