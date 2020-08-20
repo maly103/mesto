@@ -58,11 +58,6 @@ const formElementAdd = blockPopupAdd.querySelector('.popup__container');
 const editFormValidator = new FormValidator(data, formElementEdit);
 const addFormValidator = new FormValidator(data, formElementAdd);
 
-function inputsValidation(formValidator, blockPopup) {
-  formValidator.enableValidation();
-  showPopup(blockPopup);
-}
-
 function showPopup(blockPopup) {
   blockPopup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
@@ -110,13 +105,15 @@ buttonEdit.addEventListener('click', () => {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
   editFormValidator.hideErrorsValidation();
-  inputsValidation(editFormValidator, blockPopupEdit);
+  editFormValidator.enableValidation();
+  showPopup(blockPopupEdit);
 });
 
 buttonAdd.addEventListener('click', () => {
   formElementAdd.reset();
   addFormValidator.hideErrorsValidation();
-  inputsValidation(addFormValidator, blockPopupAdd);
+  addFormValidator.enableValidation();
+  showPopup(blockPopupAdd);
 });
 
 const popupsClose = () => {
