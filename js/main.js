@@ -54,12 +54,16 @@ const modalText = blockPopupImage.querySelector('.popup__text-image');
 const formElementEdit = blockPopupEdit.querySelector('.popup__container');
 const formElementAdd = blockPopupAdd.querySelector('.popup__container');
 
-function showPopup(blockPopup) {
-  const formPopup = blockPopup.querySelector('.popup__container');
-  if (formPopup) {
-    (new FormValidator(data, formPopup)).enableValidation();
-  }
+// objects FormValidator
+const editFormValidator = new FormValidator(data, formElementEdit);
+const addFormValidator = new FormValidator(data, formElementAdd);
 
+function inputsValidation(formValidator, blockPopup) {
+  formValidator.enableValidation();
+  showPopup(blockPopup);
+}
+
+function showPopup(blockPopup) {
   blockPopup.classList.add('popup_opened');
   document.addEventListener('keydown', closePopupEsc);
 }
@@ -76,7 +80,6 @@ function closePopupEsc(evt) {
 }
 
 const openPopupImage = (cardImg, cardTitle) => {
-
   modalImage.src = cardImg;
   modalImage.alt = cardTitle;
   modalText.textContent = cardTitle;
@@ -106,11 +109,14 @@ function formSubmitHandlerEdit(evt) {
 buttonEdit.addEventListener('click', () => {
   nameInput.value = profileTitle.textContent;
   jobInput.value = profileSubtitle.textContent;
-  showPopup(blockPopupEdit);
+  editFormValidator.hideErrorsValidation();
+  inputsValidation(editFormValidator, blockPopupEdit);
 });
 
 buttonAdd.addEventListener('click', () => {
-  showPopup(blockPopupAdd);
+  formElementAdd.reset();
+  addFormValidator.hideErrorsValidation();
+  inputsValidation(addFormValidator, blockPopupAdd);
 });
 
 const popupsClose = () => {
