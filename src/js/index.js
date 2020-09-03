@@ -6,6 +6,7 @@ import Popup from './components/Popup.js';
 import PopupWithImage from './components/PopupWithImage.js';
 import PopupWithForm from './components/PopupWithForm.js';
 import UserInfo from './components/UserInfo.js';
+import '../pages/index.css'
 
 const initialCards = [{
     name: 'Архыз',
@@ -53,7 +54,7 @@ const dataProfile = new UserInfo({
   profileTitle,
   profileSubtitle
 });
-const infoProfile = dataProfile.getUserInfo();
+
 
 //data popup
 const mestoInput = blockPopupAdd.querySelector('.popup__text[name=mesto]');
@@ -106,6 +107,7 @@ const addFormValidator = new FormValidator(data, formElementAdd);
 
 // buttons events
 buttonEdit.addEventListener('click', () => {
+  const infoProfile = dataProfile.getUserInfo();
   nameInput.value = infoProfile.name;
   jobInput.value = infoProfile.job;
   editFormValidator.hideErrorsValidation();
