@@ -1,0 +1,27 @@
+{
+  "name": "mesto",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rd /s /q dist && webpack --mode production",
+    "dev": "webpack-dev-server --watch --open"
+
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maly103/mesto.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/maly103/mesto/issues"
+  },
+  "homepage": "https://github.com/maly103/mesto#readme",
+  "devDependencies": {
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12",
+    "webpack-dev-server": "^3.11.0"
+  }
+}
