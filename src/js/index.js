@@ -72,7 +72,7 @@ function renderCard(item, direction) {
     handleCardClick: (link, name) => {
       popupImage.open(link, name)
     }
-  }, '.elements__card');
+  }, '.elements__card','.elements__item');
   const cardElement = card.generateCard();
   cardsList.addItem(cardElement, direction);
 }
