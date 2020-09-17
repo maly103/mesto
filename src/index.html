@@ -1,79 +1,139 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MESTO</title>
-</head>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MESTO</title>
+  </head>
 
-<body class="page">
-
-  <section class="popup popup_type_edit">
+  <body class="page">
+    <section class="popup popup_type_edit">
       <form action="#" class="popup__container" name="popup-edit" novalidate>
         <button class="popup__close" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <input class="popup__text" type="text" name="prof-title" required minlength="2" maxlength="40" autocomplete="off">
+        <input
+          class="popup__text"
+          type="text"
+          name="prof-title"
+          required
+          minlength="2"
+          maxlength="40"
+          autocomplete="off"
+        />
         <span class="popup__text-error" id="prof-title-error"></span>
-        <input class="popup__text" type="text" name="prof-subtitle" required minlength="2" maxlength="200" autocomplete="off">
+        <input
+          class="popup__text"
+          type="text"
+          name="prof-subtitle"
+          required
+          minlength="2"
+          maxlength="200"
+          autocomplete="off"
+        />
         <span class="popup__text-error" id="prof-subtitle-error"></span>
         <button class="popup__send" type="submit">Сохранить</button>
-     </form>
-  </section>
-  <section class="popup popup_type_new">
-    <form action="#" class="popup__container" name="popup-new" novalidate>
-      <button class="popup__close" type="button"></button>
-      <h2 class="popup__title">Новое место</h2>
-      <input class="popup__text" type="text" name="mesto" placeholder="Название" required minlength="1" maxlength="30" autocomplete="off">
-      <span class="popup__text-error" id="mesto-error"></span>
-      <input class="popup__text" type="url" name="mesto-url" placeholder="Ссылка на картинку" required>
-      <span class="popup__text-error" id="mesto-url-error"></span>
-      <button class="popup__send" type="submit">Создать</button>
-   </form>
-</section>
-<section class="popup popup_type_image">
-  <div class="popup__container-image">
-    <button class="popup__close" type="button"></button>
-    <img src="#" class="popup__image" alt="картинка">
-    <p class="popup__text-image"></p>
-  </div>
-</section>
-
-
-  <header class="header">
-     <img class="logo header__logo" src="./images/Vector.svg" alt="логотип">
-  </header>
-
-  <main class="main">
-    <section class="profile">
-      <img src="./images/avatar.jpg" alt="аватарка" class="profile__avatar">
-      <div class="profile__intro">
-        <h1 class="profile__title">Жак-Ив Кусто</h1>
-        <button class="profile__edit" type="button"></button>
-        <p class="profile__subtitle">Исследователь океана</p>
+      </form>
+    </section>
+    <section class="popup popup_type_submit">
+      <form action="#" class="popup__container" name="popup-delete" novalidate>
+        <button class="popup__close" type="button"></button>
+        <h2 class="popup__title popup__title_type_delete">Вы уверены?</h2>
+        <button class="popup__send popup__send_type_delete" type="submit">
+          Да
+        </button>
+      </form>
+    </section>
+    <section class="popup popup_type_new">
+      <form action="#" class="popup__container" name="popup-new" novalidate>
+        <button class="popup__close" type="button"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <input
+          class="popup__text"
+          type="text"
+          name="mesto"
+          placeholder="Название"
+          required
+          minlength="1"
+          maxlength="30"
+          autocomplete="off"
+        />
+        <span class="popup__text-error" id="mesto-error"></span>
+        <input
+          class="popup__text"
+          type="url"
+          name="mesto-url"
+          placeholder="Ссылка на картинку"
+          required
+        />
+        <span class="popup__text-error" id="mesto-url-error"></span>
+        <button class="popup__send" type="submit">Создать</button>
+      </form>
+    </section>
+    <section class="popup popup_type_avatar">
+      <form action="#" class="popup__container" name="popup-new" novalidate>
+        <button class="popup__close" type="button"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <input
+          class="popup__text"
+          type="url"
+          name="avatar-url"
+          placeholder="Ссылка на аватар"
+          required
+        />
+        <span class="popup__text-error" id="avatar-url-error"></span>
+        <button class="popup__send" type="submit">Сохранить</button>
+      </form>
+    </section>
+    <section class="popup popup_type_image">
+      <div class="popup__container-image">
+        <button class="popup__close" type="button"></button>
+        <img src="#" class="popup__image" alt="картинка" />
+        <p class="popup__text-image"></p>
       </div>
-      <button class="profile__add" type="button"></button>
     </section>
 
-    <section>
-     <ul class="elements">
+    <header class="header">
+      <img class="logo header__logo" src="./images/Vector.svg" alt="логотип" />
+    </header>
 
-     </ul>
-     </section>
-  </main>
+    <main class="main">
+      <section class="profile">
+        <div class="profile__wrapper-avatar">
+          <img
+            src="./images/avatar.jpg"
+            alt="аватарка"
+            class="profile__avatar"
+          />
+        </div>
 
-<footer class="footer">
-  <p class="footer__text">&copy; 2020 Mesto Russia </p>
-</footer>
-<template class="elements__card">
-  <li class="elements__item">
-    <button class="elements__trash" type="button"></button>
-    <img class="elements__img" src="#" alt="">
-    <div class="elements__footer">
-      <h2 class="elements__title"></h2>
-      <button class="elements__heart" type="button"></button>
-    </div>
-  </li>
-</template>
-</body>
+        <div class="profile__intro">
+          <h1 class="profile__title">Жак-Ив Кусто</h1>
+          <button class="profile__edit" type="button"></button>
+          <p class="profile__subtitle">Исследователь океана</p>
+        </div>
+        <button class="profile__add" type="button"></button>
+      </section>
+
+      <section>
+        <ul class="elements"></ul>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p class="footer__text">&copy; 2020 Mesto Russia</p>
+    </footer>
+    <template class="elements__card">
+      <li class="elements__item">
+        <button class="elements__trash" type="button"></button>
+        <img class="elements__img" src="#" alt="" />
+        <div class="elements__footer">
+          <h2 class="elements__title"></h2>
+          <div class="elements__like">
+            <button class="elements__heart" type="button"></button>
+            <p class="elements__col"></p>
+          </div>
+        </div>
+      </li>
+    </template>
+  </body>
 </html>
-

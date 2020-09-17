@@ -55,7 +55,6 @@ class FormValidator {
   }
 
   _setEventListener() {
-    // this._inputList = Array.from(this._formElement.querySelectorAll(this._inputSelector));
     const buttonElement = this._formElement.querySelector(
       this._submitButtonSelector
     );
