@@ -8,12 +8,8 @@ export default class Api {
     if (res.ok) {
       return res.json();
     } else {
-      return Promise.reject(res.status);
+      return Promise.reject(new Error(`Ошибка: ${res.status}`));
     }
-  }
-
-  renderError(err) {
-    alert(`Ошибка: ${err}`);
   }
 
   getAllCards(text) {
@@ -23,13 +19,9 @@ export default class Api {
         "Content-type": "application/json",
         authorization: this._id,
       },
-    })
-      .then((res) => {
-        return this.renderResult(res);
-      })
-      .catch((err) => {
-        this.renderError(err);
-      });
+    }).then((res) => {
+      return this.renderResult(res);
+    });
   }
 
   getUserData(text) {
@@ -39,13 +31,9 @@ export default class Api {
         "Content-type": "application/json",
         authorization: this._id,
       },
-    })
-      .then((res) => {
-        return this.renderResult(res);
-      })
-      .catch((err) => {
-        this.renderError(err);
-      });
+    }).then((res) => {
+      return this.renderResult(res);
+    });
   }
 
   getAllData() {
@@ -66,12 +54,8 @@ export default class Api {
         name: nameUser,
         about: aboutUser,
       }),
-    })
-    .then((res) => {
+    }).then((res) => {
       return this.renderResult(res);
-    })
-    .catch((err) => {
-      this.renderError(err);
     });
   }
 
@@ -85,13 +69,9 @@ export default class Api {
       body: JSON.stringify({
         avatar: link,
       }),
-    })
-      .then((res) => {
-        return this.renderResult(res);
-      })
-      .catch((err) => {
-        this.renderError(err);
-      });
+    }).then((res) => {
+      return this.renderResult(res);
+    });
   }
 
   addCard(text, nameCard, linkCard) {
@@ -105,13 +85,9 @@ export default class Api {
         name: nameCard,
         link: linkCard,
       }),
-    })
-      .then((res) => {
-        return this.renderResult(res);
-      })
-      .catch((err) => {
-        this.renderError(err);
-      });
+    }).then((res) => {
+      return this.renderResult(res);
+    });
   }
 
   deleteCard(text) {
@@ -121,12 +97,8 @@ export default class Api {
         authorization: this._id,
         "Content-type": "application/json",
       },
-    })
-    .then((res) => {
+    }).then((res) => {
       return this.renderResult(res);
-    })
-    .catch((err) => {
-      this.renderError(err);
     });
   }
 
@@ -137,13 +109,9 @@ export default class Api {
         authorization: this._id,
         "Content-type": "application/json",
       },
-    })
-      .then((res) => {
-        return this.renderResult(res);
-      })
-      .catch((err) => {
-        this.renderError(err);
-      });
+    }).then((res) => {
+      return this.renderResult(res);
+    });
   }
 
   dislikeCard(text) {
@@ -153,12 +121,8 @@ export default class Api {
         authorization: this._id,
         "Content-type": "application/json",
       },
-    })
-      .then((res) => {
-        return this.renderResult(res);
-      })
-      .catch((err) => {
-        this.renderError(err);
-      });
+    }).then((res) => {
+      return this.renderResult(res);
+    });
   }
 }

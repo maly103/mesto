@@ -48,13 +48,9 @@ class Card {
     });
     this._cardLike.addEventListener("click", () => {
       if (this._cardLike.classList.contains("elements__heart_liked")) {
-        this._handleCardDislike(
-          this._idCard,
-          this._cardLike,
-          this._cardLikeCol
-        );
+        this._handleCardDislike(this._idCard, this._cardLike);
       } else {
-        this._handleCardLike(this._idCard, this._cardLike, this._cardLikeCol);
+        this._handleCardLike(this._idCard, this._cardLike);
       }
     });
   }
@@ -63,6 +59,10 @@ class Card {
     this._cardTrash.addEventListener("click", () => {
       this._handleCardDelete(this._element, this._idCard);
     });
+  }
+
+  getLikeCard(likes) {
+    this._cardLikeCol.textContent = likes;
   }
 
   generateCard() {
